@@ -23,7 +23,7 @@ const Navbar = () => {
                 <div className="flex justify-between h-16">
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0 flex items-center gap-2">
-                            <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                            <div className="hidden md:flex w-8 h-8 bg-accent rounded-lg items-center justify-center text-white font-bold text-xl">
                                 H
                             </div>
                             <span className="font-bold text-xl text-slate-900 tracking-tight">HalalHorizons</span>

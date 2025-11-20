@@ -21,7 +21,7 @@ const Home = () => {
                             rotate: [0, 5, 0]
                         }}
                         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-20 right-[10%] w-64 h-64 rounded-full border-4 border-brand-green/30"
+                        className="hidden lg:block absolute top-20 right-[10%] w-64 h-64 rounded-full border-4 border-brand-green/30"
                     />
                     <motion.div
                         animate={{
@@ -29,7 +29,7 @@ const Home = () => {
                             x: [0, 20, 0]
                         }}
                         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute bottom-20 left-[5%] w-48 h-48 rounded-full bg-brand-orange/20 blur-3xl"
+                        className="hidden lg:block absolute bottom-20 left-[5%] w-48 h-48 rounded-full bg-brand-orange/20 blur-3xl"
                     />
                 </div>
 
