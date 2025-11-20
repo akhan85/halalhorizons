@@ -1,3 +1,4 @@
+// Mobile-optimized UI
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, BookOpen, Users, Library, Info, Mail } from 'lucide-react';
