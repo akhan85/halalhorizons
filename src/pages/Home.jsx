@@ -82,7 +82,7 @@ const Home = () => {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8 }}
-                            className="flex-1 relative"
+                            className="hidden lg:block flex-1 relative"
                         >
                             <HeroIllustration />
                         </motion.div>
