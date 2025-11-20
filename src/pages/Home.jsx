@@ -82,7 +82,7 @@ const Home = () => {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8 }}
-                            className="hidden lg:block flex-1 relative"
+                            className="absolute inset-0 lg:relative lg:flex-1 opacity-30 lg:opacity-100 pointer-events-none lg:pointer-events-auto"
                         >
                             <HeroIllustration />
                         </motion.div>
