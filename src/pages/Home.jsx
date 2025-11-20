@@ -12,7 +12,7 @@ const Home = () => {
     return (
         <div className="flex flex-col overflow-x-hidden">
             {/* Hero Section */}
-            <section className="relative bg-slate-900 text-white overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-32">
+            <section className="relative bg-slate-900 text-white overflow-hidden py-20 lg:py-32">
                 {/* Animated Background Elements */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <motion.div
@@ -33,14 +33,14 @@ const Home = () => {
                     />
                 </div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="flex flex-col lg:flex-row items-center gap-16">
-                        <div className="flex-1 text-center lg:text-left">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                        <div className="flex-1 text-center lg:text-left w-full">
                             <motion.h1
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
-                                className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight"
+                                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight"
                             >
                                 Master Your Child's <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-brand-olive">
@@ -51,7 +51,7 @@ const Home = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                                className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0"
                             >
                                 Interactive learning for the modern family. Join a community dedicated to academic excellence and character development.
                             </motion.p>
@@ -77,12 +77,12 @@ const Home = () => {
                             </motion.div>
                         </div>
 
-                        {/* Hero Visual */}
+                        {/* Hero Visual - Hidden on Mobile/Tablet */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8 }}
-                            className="absolute inset-0 lg:relative lg:flex-1 opacity-30 lg:opacity-100 pointer-events-none lg:pointer-events-auto"
+                            className="hidden lg:flex flex-1"
                         >
                             <HeroIllustration />
                         </motion.div>
