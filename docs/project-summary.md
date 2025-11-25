@@ -28,7 +28,8 @@
 ## 1. Current Snapshot (High-Level)
 
 - **Architecture:**
-  - Frontend: Next.js (React).
+  - Frontend: React single-page application using Vite and `react-router-dom`.
+  - Styling: Tailwind CSS with custom design system (brand greens/yellows, modern marketing UI).
   - Backend/Data: Supabase (Postgres, Auth, Storage).
   - Hosting: (To be filled once deployed).
 
@@ -74,11 +75,45 @@ _Current plan: (edit if schema changes)_
 
 If new tables are added or important columns change, mention them briefly here.
 
+### 2.1 Admin & Moderation Model
+
+- Admins are identified via Supabase Auth **user metadata**:
+  - A user is treated as an admin when `user_metadata.is_admin` is truthy.
+  - Frontend checks `user.user_metadata.is_admin` to show admin-only navigation and pages.
+- Book review moderation:
+  - `book_reviews.status` is one of `pending`, `approved`, `rejected`.
+  - New and edited reviews are saved as `pending`.
+  - Only `status = 'approved'` reviews are visible to anonymous visitors.
+  - Admins can approve/reject reviews via `/admin/reviews`.
+
+To upgrade a user to admin run the following script in supabase:
+
+update auth.users
+set raw_user_meta_data =
+  coalesce(raw_user_meta_data, '{}'::jsonb)
+  || jsonb_build_object('is_admin', true)
+where email = 'you@example.com';
+
+replace 'you@example.com' with users email
 ---
 
 ## 3. Change Log
 
 > Newest entries at the top. Keep entries short and factual.
+
+- **[2025-11-22]** – *Admin review moderation for book reviews.*
+  - Added `/admin/reviews` page for admins to view and approve/reject pending book reviews.
+  - Navbar now exposes an **Admin** link only for users with `user_metadata.is_admin = true`.
+  - Documented how to configure admin users in Supabase and clarified the `book_reviews.status` lifecycle.
+
+- **[2025-11-22]** – *Initial Books & Reviews slice implemented on React/Vite frontend.*
+  - Implemented `/books` listing page backed by Supabase `books` + `book_reviews` with age-band, theme, and text filters.
+  - Added `/books/:id` detail page showing approved reviews, aggregated ratings, and content categories.
+  - Wired logged-in users to submit book reviews which enter a pending state for later admin approval.
+
+- **[2025-11-20]** – *Initial React + Vite SPA skeleton implemented.*
+  - Implemented marketing pages and navigation as a Vite + React SPA using `react-router-dom`.
+  - Added initial Supabase client and basic email/password signup + login screens.
 
 - **[YYYY-MM-DD]** – *Initial PRD and architecture defined.*
   - Defined Next.js + Supabase stack.

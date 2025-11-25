@@ -233,9 +233,9 @@
 
 ### 4.1 High-Level Stack
 
-- **Frontend:** Next.js (React)
-  - Routing for pages.
-  - API routes for small backend tasks (if needed).
+- **Frontend:** React single-page application using Vite
+  - Client-side routing via `react-router-dom` for the main pages.
+  - Components for shared layout (navbar, footer, layout wrapper).
 - **Backend / Data:**
   - Supabase:
     - Postgres database.
@@ -243,7 +243,7 @@
     - Storage.
     - Row Level Security (RLS).
 - **Hosting:**
-  - Next.js on Vercel (or similar free tier).
+  - Frontend deployed as a static Vite build (e.g. Vercel/Netlify or similar).
   - Supabase free tier initially.
 
 ### 4.2 Data Model (Initial)
@@ -279,7 +279,7 @@
 
 - **book_reviews**
   - `id`, `book_id`, `reviewer_id`, `rating_overall`, `age_appropriateness_rating`,
-    `themes` (JSON or tags), `strengths`, `concerns`, `created_at`.
+    `themes` (JSON or tags), `strengths`, `concerns`, `status` (`pending`, `approved`, `rejected`), `created_at`.
 
 - **content_flags** (for moderation)
   - `id`, `item_type` (`book_review`, `community_post`), `item_id`, `flagged_by`,

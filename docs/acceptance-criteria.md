@@ -270,12 +270,16 @@ This document defines what “done” means for each major feature in the PRD.
         - Violence.
         - Romantic themes.
         - Sexual themes.
-    - Submitting a valid review saves it in the database and associates it with my user and the book.
+    - Submitting a valid review saves it in the database with `status = 'pending'` and associates it with my user and the book.
 
 - **AC-Reviews-2 – Content categories display**
   - On the book detail page:
     - Each review’s selected content categories are shown clearly (e.g., badges listing “Violence”, “Mature language”).
     - If no categories are selected, no badges are shown.
+
+- **AC-Reviews-2b – Visibility rules**
+  - Pending or rejected reviews are **not** shown to the public.
+  - Only reviews with `status = 'approved'` appear in the public book detail view and are used in any aggregated rating.
 
 - **AC-Reviews-3 – Permissions**
   - Logged-out users:
@@ -296,8 +300,8 @@ This document defines what “done” means for each major feature in the PRD.
 
 ## 7. Technical Architecture & Deployment
 
-- **AC-Tech-1 – Next.js routing**
-  - The app is a Next.js project where the following routes exist and render without errors:
+- **AC-Tech-1 – React SPA routing**
+  - The app is a React single-page application (SPA) built with Vite and `react-router-dom`, where the following routes exist and render without errors:
     - `/`, `/about`, `/contact`, `/resources`, `/blog`, `/community`, `/books`.
 
 - **AC-Tech-2 – Supabase integration**

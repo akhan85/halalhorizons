@@ -170,6 +170,36 @@ Make sure to set the environment variables in your deployment platform's setting
 
 This is a community-focused project for Muslim homeschooling families. Contributions are welcome!
 
+### Writing Blog Posts (Markdown Cheatsheet)
+
+Blog content is stored as **Markdown**. The admin blog editor expects Markdown in the main content field. Common patterns:
+
+- **Headings**
+  - `# H1 main title`
+  - `## H2 section`
+  - `### H3 subsection`
+- **Paragraphs**
+  - Write normal text separated by blank lines.
+- **Bold / Italic**
+  - Italic: `*word*` or `_word_`
+  - Bold: `**word**`
+  - Bold + italic: `***very important***`
+- **Bullet list**
+  -
+    - `- First point`
+    - `- Second point`
+- **Numbered list**
+  1. `1. First step`
+  2. `2. Second step`
+- **Links**
+  - `[link text](https://example.com)`
+- **Images**
+  - `![alt text](https://example.com/image.jpg)`
+- **Horizontal rule / section break**
+  - `---`
+
+Use headings to structure long-form posts, short paragraphs for readability, and bullets/numbered steps for checklists or lessons.
+
 ## License
 
 [To be determined]
