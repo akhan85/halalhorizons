@@ -85,6 +85,11 @@ If new tables are added or important columns change, mention them briefly here.
   - New and edited reviews are saved as `pending`.
   - Only `status = 'approved'` reviews are visible to anonymous visitors.
   - Admins can approve/reject reviews via `/admin/reviews`.
+ - Blog moderation & visibility:
+   - Blog posts live in `public.blog_posts` with `title`, `slug`, `content`, `author_id`, `published_at`, etc.
+   - Public users (including anonymous) can only read posts where `published_at IS NOT NULL` ("published" posts).
+   - Admins can create, edit, and delete posts via `/admin/blog` and `/admin/blog/new`.
+   - Admin-only RLS uses the JWT `user_metadata.is_admin` flag so that only admins can insert/update/delete.
 
 To upgrade a user to admin run the following script in supabase:
 
@@ -100,6 +105,11 @@ replace 'you@example.com' with users email
 ## 3. Change Log
 
 > Newest entries at the top. Keep entries short and factual.
+
+- **[2025-11-24]** – *Blog list/detail and admin editor wired with RLS.*
+  - Implemented `/blog` list and `/blog/:slug` detail pages rendering Markdown content from `blog_posts`.
+  - Added admin-only blog management at `/admin/blog` and `/admin/blog/new` (create, edit, delete, publish).
+  - Finalized RLS so anonymous users can only read posts where `published_at IS NOT NULL`, while admins manage posts via `user_metadata.is_admin`.
 
 - **[2025-11-22]** – *Admin review moderation for book reviews.*
   - Added `/admin/reviews` page for admins to view and approve/reject pending book reviews.
